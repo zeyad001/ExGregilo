@@ -28,6 +28,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.event.world.BlockEvent;
+import co.q64.exgregilo.ExGregilo;
 import co.q64.exgregilo.api.link.LinkManager;
 import co.q64.exgregilo.link.gregtech.GregTech;
 import co.q64.exgregilo.link.gregtech.recipe.CompressedHammerRecipes;
@@ -143,8 +144,8 @@ public class CompressedHammer extends CustomMetaTool {
 				return true;
 			}
 		}
-		
-		return (aBlock.getMaterial() == Material.wood || aBlock.getMaterial() == Material.rock) || (aBlock == Blocks.gravel) || (aBlock == Blocks.sand) | (chr.findRecipe(null, true, 2147483647L, null, new ItemStack[] { new ItemStack(aBlock, 1, aMetaData) }) != null);
+
+		return ( aBlock.getMaterial() == Material.rock) || (aBlock == Blocks.gravel) || (aBlock == Blocks.sand) | (chr.findRecipe(null, true, 2147483647L, null, new ItemStack[] { new ItemStack(aBlock, 1, aMetaData) }) != null);
 	}
 
 	public int convertBlockDrops(List<ItemStack> aDrops, ItemStack aStack, EntityPlayer aPlayer, Block aBlock, int aX, int aY, int aZ, byte aMetaData, int aFortune, boolean aSilkTouch, BlockEvent.HarvestDropsEvent aEvent) {

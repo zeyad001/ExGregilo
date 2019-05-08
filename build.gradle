@@ -36,10 +36,6 @@ repositories {
         name = "chickenbones"
         url = "http://chickenbones.net/maven/"
     }
-	maven {
-		name = "quantum"
-		url = "http://quantum64.github.io/ExGregilo/"
-	}
     maven { // EnderIO & EnderCore
         name 'tterrag Repo'
         url "http://maven.tterrag.com"
@@ -98,7 +94,7 @@ dependencies {
 	compile "exastris:Ex-Astris:MC1.7.10-1.16-36"
 	//compile "excompressum:excompressum-mc1.7.10-1.1.149"
 	compile "minetweaker3:MineTweaker3:1.7.10-3.0.10B"
-	compile "co.q64.libs:ExCompressum:1.7.10-1.2.0"
+	compile "co.q64.libs:excompressum:mc1.7.10-1.2.0"
 	embed "com.google:guice:q64"
 	embed "com.google:guice-multibindings:q64"
 }

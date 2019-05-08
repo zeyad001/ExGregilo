@@ -24,6 +24,7 @@ import co.q64.exgregilo.data.ModIds;
 import co.q64.exgregilo.link.excompressum.ExCompressum;
 import co.q64.exgregilo.proxy.CommonProxy;
 import co.q64.exgregilo.util.BlockRegistration;
+import co.q64.exgregilo.util.ConfigHandler;
 import co.q64.exgregilo.util.GregiloLogger;
 import co.q64.exgregilo.util.ItemRegistration;
 import cpw.mods.fml.common.Mod;
@@ -33,6 +34,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerAboutToStartEvent;
+import net.minecraftforge.common.config.Configuration;
 
 @Mod(modid = ModData.MODID, version = ModData.VERSION, dependencies = "after:" + ModIds.EX_NIHILO_ID /*+ "; after:" + ModData.GREGTECH_ID */+ "; before:" + ModIds.EX_COMPRESSUM_ID)
 public class ExGregilo {
@@ -56,6 +58,7 @@ public class ExGregilo {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+	    ConfigHandler.init();
 		event.getModLog().info(GregiloLogger.PREFIX + "Creating injector... this can take some time.");
 		long now = System.currentTimeMillis();
 		Injector injector = Guice.createInjector(getModule(event));

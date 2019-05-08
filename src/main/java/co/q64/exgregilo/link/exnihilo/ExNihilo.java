@@ -18,6 +18,7 @@ import co.q64.exgregilo.api.util.Logger;
 import co.q64.exgregilo.data.ModIds;
 import co.q64.exgregilo.link.exnihilo.block.GregCrucible;
 import co.q64.exgregilo.link.gregtech.GregTech;
+import co.q64.exgregilo.util.ConfigHandler;
 import co.q64.exgregilo.util.CraftingKiller;
 import cpw.mods.fml.common.registry.GameRegistry;
 import exnihilo.ENBlocks;
@@ -42,13 +43,13 @@ public class ExNihilo extends LinkBase {
 		if (configManager.getBoolean(ExNihilo.class, "removeDefaultSiftOres", true)) {
 			cleaner.removeDefaultOres();
 		}
-		if (configManager.getBoolean(ExNihilo.class, "removeExNihiloHammers", true)) {
+		if (!ConfigHandler.getInstance().enableHammers) {
 			killer.remove(new ItemStack(ENItems.HammerWood));
 			killer.remove(new ItemStack(ENItems.HammerStone));
 			killer.remove(new ItemStack(ENItems.HammerIron));
 			killer.remove(new ItemStack(ENItems.HammerGold));
 			killer.remove(new ItemStack(ENItems.HammerDiamond));
-		
+		  
 		}
 
 		if (configManager.getBoolean(ExNihilo.class, "removeExNihiloSieves", true)) {
@@ -58,6 +59,7 @@ public class ExNihilo extends LinkBase {
 			killer.remove(new ItemStack(ENBlocks.Sieve, 1, 3));
 			killer.remove(new ItemStack(ENBlocks.Sieve, 1, 4));
 			killer.remove(new ItemStack(ENBlocks.Sieve, 1, 5));
+		
 		}
 
 		GameRegistry.addSmelting(ENBlocks.CrucibleUnfired, new ItemStack(gregCrucible), 0f);
