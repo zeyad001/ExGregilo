@@ -143,7 +143,8 @@ public class CompressedHammer extends CustomMetaTool {
 				return true;
 			}
 		}
-		return (aBlock.getMaterial() == Material.rock) || (aBlock == Blocks.gravel) || (aBlock == Blocks.sand) | (chr.findRecipe(null, true, 2147483647L, null, new ItemStack[] { new ItemStack(aBlock, 1, aMetaData) }) != null);
+		
+		return (aBlock.getMaterial() == Material.wood || aBlock.getMaterial() == Material.rock) || (aBlock == Blocks.gravel) || (aBlock == Blocks.sand) | (chr.findRecipe(null, true, 2147483647L, null, new ItemStack[] { new ItemStack(aBlock, 1, aMetaData) }) != null);
 	}
 
 	public int convertBlockDrops(List<ItemStack> aDrops, ItemStack aStack, EntityPlayer aPlayer, Block aBlock, int aX, int aY, int aZ, byte aMetaData, int aFortune, boolean aSilkTouch, BlockEvent.HarvestDropsEvent aEvent) {

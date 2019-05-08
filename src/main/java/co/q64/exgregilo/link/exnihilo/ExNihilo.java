@@ -48,6 +48,7 @@ public class ExNihilo extends LinkBase {
 			killer.remove(new ItemStack(ENItems.HammerIron));
 			killer.remove(new ItemStack(ENItems.HammerGold));
 			killer.remove(new ItemStack(ENItems.HammerDiamond));
+		
 		}
 
 		if (configManager.getBoolean(ExNihilo.class, "removeExNihiloSieves", true)) {
