@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import co.q64.exgregilo.api.link.LinkManager;
 import co.q64.exgregilo.link.gregtech.GregTech;
@@ -29,12 +30,46 @@ public class BasicMesh extends CustomMetaTool {
 		for (Materials material : Arrays.asList(Materials.Wood, Materials.Diamond, Materials.Iron, Materials.Gold)) {
 			ItemStack result = linkManager.getLink(GregTech.class).getTools().getToolWithStats(MetaGeneratedTools.BASIC_MESH_ID, 1, material, material, null);
 			//formatter:off
-				boolean added = GT_ModHandler.addCraftingRecipe(result, GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS | GT_ModHandler.RecipeBits.BUFFERED, new Object[]{
-				"III",
-				"IDI", 
-				"III", 
-				Character.valueOf('I'), material == Materials.Wood ? OrePrefixes.plank.get(material) : OrePrefixes.gem.get(material),
-				Character.valueOf('D'), material == Materials.Wood ? OrePrefixes.stick.get(material) : OrePrefixes.dust.get(material)});
+			
+			boolean added = false;
+			if(material == Materials.Wood)
+			{
+				added = GT_ModHandler.addCraftingRecipe(result, GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS | GT_ModHandler.RecipeBits.BUFFERED, new Object[]{
+						"III",
+						"IDI", 
+						"III", 
+						Character.valueOf('I'), OrePrefixes.plank.get(material),
+						Character.valueOf('D'), OrePrefixes.stick.get(material),
+						});
+						
+				
+				
+			}
+			if(material == Materials.Diamond)
+			{
+				added = GT_ModHandler.addCraftingRecipe(result, GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS | GT_ModHandler.RecipeBits.BUFFERED, new Object[]{
+						"III",
+						"IDI", 
+						"III", 
+						Character.valueOf('I'), OrePrefixes.gem.get(material),
+						Character.valueOf('D'), OrePrefixes.dust.get(material),
+						});
+						
+			}
+			if(material == Materials.Metal)
+			{
+				added = GT_ModHandler.addCraftingRecipe(result, GT_ModHandler.RecipeBits.DO_NOT_CHECK_FOR_COLLISIONS | GT_ModHandler.RecipeBits.BUFFERED, new Object[]{
+						"III",
+						"IDI", 
+						"III", 
+						Character.valueOf('I'), OrePrefixes.plate.get(material),
+						Character.valueOf('D'), OrePrefixes.dust.get(material),
+						});
+			}
+		
+		
+			//	 material == Materials.Wood ? OrePrefixes.plank.get(material) : OrePrefixes.gem.get(material),
+			//	 material == Materials.Wood ? OrePrefixes.stick.get(material) : OrePrefixes.dust.get(material)});
 				//formatter:on
 			if (added) {
 				if (useNEI) {
