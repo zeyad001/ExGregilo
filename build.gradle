@@ -45,7 +45,11 @@ repositories {
         url "http://mobiusstrip.eu/maven"
     }
 	maven {
-	name 'guice'
+	name 'guice1'
+	url "https://github.com/Quantum64/ExGregilo/tree/gh-pages"
+	}
+	maven {
+	name 'guice2'
 	url "https://github.com/zeyad001/ExGregilo/tree/gh-pages" 
 	}
 	ivy {

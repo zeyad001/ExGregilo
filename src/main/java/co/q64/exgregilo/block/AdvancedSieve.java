@@ -26,7 +26,6 @@ public class AdvancedSieve extends AbstractSieve {
 	private IIcon meshIcon;
 
 	@Inject
-
 	public AdvancedSieve(@ModId String modId, @AdvancedSieveBlockName String name) {
 		super();
 		setBlockName(modId + "." + name);
